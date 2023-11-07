@@ -23,4 +23,11 @@ And then in your configuration for ``python-lsp-server``:
                 pylama = { enabled = true },
             }
         }
-    }
+    },
+
+The options also include ``args`` which are a list of strings that are added to the
+command line arguments used for ``pylama``.
+
+Note that if you have `noseOfYeti <https://noseofyeti.readthedocs.io/en/latest/>`_
+installed, then it will know how to transform any ``spec`` coding tests so that it may
+run ``pylama`` over them.

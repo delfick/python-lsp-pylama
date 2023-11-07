@@ -25,6 +25,9 @@ tests = [
     "pytest==7.3.0",
 ]
 
+[project.entry-points.pylsp]
+pylama = "pylsp_pylama.plugin"
+
 [project.urls]
 "Homepage" = "https://github.com/delfick/python-lsp-pylama"
 
