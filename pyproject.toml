@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python-lsp-pylama"
+authors = [
+  {name = "Stephen Moore", email = "stephen@delfick.com"}
+]
+dynamic = ["version"]
+description = "pylama linting plugin for pylsp"
+readme = "README.rst"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+dependencies = [
+  "pylama>=8.0.0",
+  "python-lsp-server",
+  "lsprotocol>=2022.0.0a1",
+  "tomli>=1.1.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+tests = [
+    "noseOfYeti[black]==2.4.1",
+    "pytest==7.3.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/delfick/python-lsp-pylama"
+
+[tool.hatch.version]
+path = "pylsp_pylama/version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/python-lsp-pylama",
+]
+
+[tool.black]
+line-length = 100
+include = '\.py$'
+exclude = '''
+/(
+     \.git
+   | dist
+   | .tox
+   | tools/\.python
+)/
+'''
+
+[tool.isort]
+profile = "black"
+skip_glob = [
+   ".git/*",
+   "dist/*",
+   ".tox/*",
+   "tools/.*",
+]
